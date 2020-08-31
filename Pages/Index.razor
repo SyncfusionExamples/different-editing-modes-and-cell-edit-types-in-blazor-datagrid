@@ -1,0 +1,58 @@
+﻿@page "/"
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.DropDowns
+
+<SfGrid DataSource="@Orders" Toolbar="@ToolbarItems">
+    <GridEditSettings AllowAdding="true"
+                      AllowEditing="true"
+                      AllowDeleting="true"
+                      Mode="EditMode.Normal"></GridEditSettings>
+    <GridColumns>
+        <GridColumn Field=@nameof(OrdersDetails.OrderID)
+                    HeaderText="Order ID"
+                    TextAlign="TextAlign.Right"
+                    Width="120"
+                    IsPrimaryKey="true">
+        </GridColumn>
+        <GridColumn Field=@nameof(OrdersDetails.CustomerID)
+                    HeaderText="Customer Name"
+                    Width="150">
+            <EditTemplate>
+                <SfAutoComplete DataSource="@Orders" TItem="OrdersDetails" TValue="string"
+                                @bind-Value="@((context as OrdersDetails).CustomerID)">
+                    <AutoCompleteFieldSettings Value="CustomerID"></AutoCompleteFieldSettings>
+                </SfAutoComplete>
+            </EditTemplate>
+        </GridColumn>
+        <GridColumn Field=@nameof(OrdersDetails.Freight)
+                    HeaderText="Freight"
+                    Format="C2"
+                    TextAlign="TextAlign.Right"
+                    Width="120"
+                    AllowEditing="false">
+        </GridColumn>
+        <GridColumn Field=@nameof(OrdersDetails.OrderDate)
+                    HeaderText=" Order Date"
+                    TextAlign="TextAlign.Right"
+                    Format="d"
+                    Width="130"
+                    EditorSettings="@DateEditParams">
+        </GridColumn>
+        <GridColumn Field=@nameof(OrdersDetails.ShipCountry)
+                    HeaderText="Ship Country"
+                    Width="130"
+                    EditType="EditType.DropDownEdit">
+        </GridColumn>
+    </GridColumns>
+</SfGrid>
+
+@code{
+    public List<OrdersDetails> Orders { get; set; } = OrdersDetails.GetOrdersDetails();
+
+    public string[] ToolbarItems = new string[] { "Add", "Edit", "Delete", "Update", "Cancel" };
+
+    public IEditorSettings DateEditParams = new DateEditCellParams
+    {
+        Params = new DatePickerModel { ShowClearButton = false }
+    };
+}
