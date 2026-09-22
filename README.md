@@ -2,7 +2,7 @@
 
 ## Overview
 
-This sample demonstrates how to configure editing in the Syncfusion Blazor DataGrid using a combination of grid edit settings, toolbar commands, and column-specific editor configurations. The implementation uses the Syncfusion SfGrid component with editing enabled through EditMode.Normal and showcases how different columns can use different editor types. The sample also demonstrates custom DatePicker editor settings, dropdown-based editing, primary key configuration, and read-only column behavior. It is useful for developers who want to understand how to customize editing experiences within the Blazor DataGrid while maintaining a consistent user experience.
+This sample demonstrates how to configure editing in the Syncfusion [Blazor DataGrid](https://www.syncfusion.com/blazor-components/blazor-datagrid) using a combination of grid edit settings, toolbar commands, and column-specific editor configurations. The implementation uses the Syncfusion SfGrid component with editing enabled through EditMode.Normal and showcases how different columns can use different editor types. The sample also demonstrates custom DatePicker editor settings, dropdown-based editing, primary key configuration, and read-only column behavior. It is useful for developers who want to understand how to customize editing experiences within the Blazor DataGrid while maintaining a consistent user experience.
 
 ## Key Features
 
